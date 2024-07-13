@@ -1,24 +1,24 @@
 <?php
+
   // O(n)
   $array = [1, 3, 5, 7, 9];
   $target = 7;
   
   $menor = 0;
-  $maior = count($array);
+  $maior = count($array)-1;
   
   while(true){
-    $chute = round(($menor + $maior) / 2);
+    $chute = floor(($menor + $maior) / 2);
     
-    if($chute == $target) {
-      print_r(array_search($chute, $array));
+    if($array[$chute] == $target) {
+      print_r($chute);
       break;
     } 
     
-    if($chute < $target){
-      $menor = $array[$menor+1];
+    if($array[$chute] < $target){
+      $menor = $chute+1;
       continue;
     }
     
-    $maior = $array[$maior-1];
+    $maior = $chute-1;
   }
-?>
